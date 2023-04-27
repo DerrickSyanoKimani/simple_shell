@@ -8,7 +8,6 @@
  * Return: 0 on success, 1 on error
  */
 int main(int ac, char **av)
-
 {
 	info_t info[] = { INFO_INIT };
 	int fd = 2;
@@ -17,6 +16,7 @@ int main(int ac, char **av)
 		"add $3, %0"
 		: "=r" (fd)
 		: "r" (fd));
+
 	if (ac == 2)
 	{
 		fd = open(av[1], O_RDONLY);
