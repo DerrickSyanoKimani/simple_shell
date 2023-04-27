@@ -2,10 +2,10 @@
 
 /**
  * _myhistory - display the history list, one command by line, preceded
- * within line numbers, starting at 0.
+ * with in line numbers, starting at 0.
  * @info: Structure containing potential arguments. Used to maintain
  * constant function prototype.
- * Returnn: Always 0
+ * Return: Always 0
  */
 int _myhistory(info_t *info)
 {
@@ -14,7 +14,7 @@ int _myhistory(info_t *info)
 }
 
 /**
- * unset_alias-sets alias to string
+ * unset_alias - sets alias to string
  * @info: parameter struct
  * @str: the string alias
  *
@@ -48,13 +48,13 @@ int set_alias(info_t *info, char *str)
 	char *p;
 
 	p = _strchr(str, '=');
-	if(!p)
-		return(1);
-	if(!*++p)
-		return(unset_alias(info, str));
+	if (!p)
+		return (1);
+	if (!*++p)
+		return (unset_alias(info, str));
 
 	unset_alias(info, str);
-	return(add_node_end(&(info->alias), str, 0) == NULL);
+	return (add_node_end(&(info->alias), str, 0) == NULL);
 
 }
 
@@ -72,7 +72,7 @@ int print_alias(list_t *node)
 	{
 		p = _strchr(node->str, '=');
 		for (a = node->str; a <= p; a++)
-			_putchar(*a);
+		_putchar(*a);
 		_putchar('\'');
 		_puts(p + 1);
 		_puts("'\n");
@@ -93,7 +93,7 @@ int _myalias(info_t *info)
 	char *p = NULL;
 	list_t *node = NULL;
 
-	if (info->argc ==1)
+	if (info->argc == 1)
 	{
 		node = info->alias;
 		while (node)
@@ -109,7 +109,7 @@ int _myalias(info_t *info)
 		if (p)
 			set_alias(info, info->argv[i]);
 		else
-			print_alias(node_starts_with(info->alias, info->argv[i]; '='));
+			print_alias(node_starts_with(info->alias, info->argv[i], '='));
 	}
 
 	return (0);
